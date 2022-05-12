@@ -112,6 +112,7 @@ object Vec2 {
   val N:Double = 3 * Math.PI / 2
   val NE:Double = 7 * Math.PI / 4
 
+  val bearingSeq = (E,S,W,N)
 
 }
 

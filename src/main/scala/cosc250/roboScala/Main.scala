@@ -38,6 +38,7 @@ object Main {
      */
     actorSystem.actorOf(Props(classOf[SpinningDuck]))
     actorSystem.actorOf(Props(classOf[SpinningDuck]))
+    actorSystem.actorOf(Props(classOf[WallPatroler]))
 
     // To add InsultingDuck, uncomment this:
     //actorSystem.actorOf(Props(classOf[InsultingDuck]))
