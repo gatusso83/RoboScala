@@ -36,9 +36,12 @@ object Main {
     /*
      * Let's create the actors for the players. They should register themselves
      */
-    actorSystem.actorOf(Props(classOf[SpinningDuck]))
-    actorSystem.actorOf(Props(classOf[SpinningDuck]))
-    actorSystem.actorOf(Props(classOf[WallPatroler]))
+    //actorSystem.actorOf(Props(classOf[SpinningDuck]))
+    //actorSystem.actorOf(Props(classOf[SpinningDuck]))
+    
+    //actorSystem.actorOf(Props(classOf[WallPatroler]))
+
+    actorSystem.actorOf(Props(classOf[MyVeryOwnTank]))
 
     // To add InsultingDuck, uncomment this:
     //actorSystem.actorOf(Props(classOf[InsultingDuck]))

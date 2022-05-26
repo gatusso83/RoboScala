@@ -35,6 +35,8 @@ case class Vec2(x:Double, y:Double) {
     */
   def theta:Double = Math.atan2(y, x)
 
+  
+
   /**
     * Returns the magnitude of this vector
     * Imagine this vector is an arrow on graph-paper from (0,0) to (x,y).
@@ -97,6 +99,7 @@ object Vec2 {
     Vec2(r * Math.cos(theta), r * Math.sin(theta))
   }
 
+  
   /** A vector of magnitude d in a random direction */
   def randomDir(d:Double):Vec2 = {
     val theta = Random.nextDouble() * Math.PI * 2
@@ -111,8 +114,5 @@ object Vec2 {
   val NW:Double = 5 * Math.PI / 4
   val N:Double = 3 * Math.PI / 2
   val NE:Double = 7 * Math.PI / 4
-
-  val bearingSeq = (E,S,W,N)
-
 }
 

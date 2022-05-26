@@ -9,7 +9,7 @@ import scala.util.Random
   * radar sweep fast). It pings constantly, and if it sees a tank always fires.
   */
 class WallPatroler extends Actor {
-
+  
   // Give our tank a unique name
   val name = s"Wall Patroler ${Random.alphanumeric.take(4).mkString}"
 
@@ -26,11 +26,20 @@ class WallPatroler extends Actor {
       if (me.canPing) Main.gameActor ! RadarPing
       
       if (!GameState.inBounds(me.position + (Vec2.fromRTheta(me.velocity,me.facing)))) 
-        Main.gameActor ! TurnClockwise //&& //(me.facing != Vec2.E || me.facing !=Vec2.W || me.facing !=Vec2.S || me.facing !=Vec2.N)) Main.gameActor ! TurnClockwise 
-      //Main.gameActor ! TurretClockwise
-      //Main.gameActor ! RadarClockwise
+        Main.gameActor ! TurnClockwise 
 
+      
+      val ang = math.atan2(GameState.height/2 - me.position.y, GameState.width/2 - me.position.x)
 
+      if (ang >= 0 && me.turretFacing < ang ) then {
+      Main.gameActor ! TurretClockwise
+      }
+      else if (ang < 0 && me.turretFacing < ang) then {
+      Main.gameActor ! TurretClockwise
+     }
+      else {
+      Main.gameActor ! TurretAnticlockwise
+      }
   
 
     // If we successfully Ping the radar, we'll get a message containing the
